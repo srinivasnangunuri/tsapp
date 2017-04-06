@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title> TS App: User Profile </title>
+    <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link href='//fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script src="js/app.js"></script>
+  </head>
+  <body>
+
+
+    <div class="container" id="mainContainer" ng-app="myApp" ng-controller="mainCtrl">
+        <h3 class="page-header">My Account</h3>
+      <div class="row">
+     <div class="span6  leftpad  pull-left"><span class="profileHead">Profile  <span id="glyphIcon" class="glyphicon glyphicon-question-sign tsGreen" aria-hidden="true"></span></span></div>
+     <div class="span6 rightpad  pull-right">
+       <a href="#" id="editLink" class="editLink marginRight5" ng-click="showSaveCancel(true)" ng-show="showEditLink">Edit</a>
+     <button type="button" id="cancelButton" class="btn btn-default marginRight5" ng-show="showCancelButton" ng-click="showSaveCancel(false)">Cancel</button>
+   <button type="button" id="saveButton" class="btn btn-primary marginRight5" ng-show="showSaveButton" ng-disabled="disableSaveButton" ng-click="saveForm()">Save</button>
+   </div>
+   </div>
+    <div id="mainWell" class="row well">
+      <div class="innerContainer">
+        <div class = "row topMargin5">
+      <div class="col-md-2">
+        <div class="text-center">
+          <img src="images/MKristoffer.png" class="avatar img-circle photo" alt="avatar"/>
+        </div>
+      </div>
+
+      <div class="col-md-2">
+        <div class="text-left">
+          <span class="formLabel">First Name </span>
+          <span class="firstName">{{user.firstName}}</span>
+        </div>
+      </div>
+      <div class="clearfix hidden-md hidden-lg"></div>
+      <div class="col-md-2">
+        <div class="text-left">
+          <span class="formLabel">Last Name </span>
+          <span class="firstName">{{user.lastName}}</span>
+        </div>
+      </div>
+        <div class="col-md-10" style="padding-top:15px" >
+         <form name="textareaForm">
+        <div class="form-group">
+          <label for="bio">Bio</label>
+          <textarea name="bio" type="text" id="bio" class="form-control" rows="8" ng-disabled="disableBio" ng-model="user.bio" ng-change="enableSave('touched')"></textarea>
+             <span class="text-muted pull-left" id="bioCount">{{remainingBioCharMessage}}</span>
+        </div>
+      </form>
+      </div>
+    </div>
+    <div class = "row topMargin25">
+  <div class="col-md-2">
+    <div class="text-center">
+      <label> Website </label>
+    </div>
+  </div>
+  <div class="col-md-10">
+    <div class="text-left">
+      <div class="span6 rightpad  pull-left"><a href="https://test4.talkspace.com/room/page" target="_blank" class="editLink">https://test4.talkspace.com/room/page</a></div>
+    </div>
+  </div>
+    </div>
+    <div class = "row topMargin25">
+      <div class="col-md-2">
+        <div class="text-center">
+          <label> Information </label>
+        </div>
+      </div>
+  <form name="infoForm">
+  <div class="col-md-3">
+    <label for="phone">Phone Number</label>
+    <input id="phone" class="form-control" ng-model="user.phone" ng-disabled="disablePhone" ng-change="enableSave('touched')"></input>
+  </div>
+  <div class="col-md-3">
+    <label for="slackName">Slack Name</label>
+    <input id="slackName" class="form-control" ng-model="user.slackName" ng-disabled="disableSlackName" ng-change="enableSave('touched')"></input>
+  </div>
+  <div class="col-md-3">
+    <label for="email">Email</label>
+    <input id="email" name="email" type="email" class="form-control" ng-model="user.email" ng-disabled="disableEmail" ng-change="enableSave('touched')"></input>
+    <span class="inValid" ng-show="infoForm.email.$touched && infoForm.email.$invalid">Invalid Email</span>
+  </div>
+</form>
+    </div>
+  </div>
+  </div>
+</div>
+  </body>
+</html>

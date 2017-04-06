@@ -1,0 +1,80 @@
+body {
+    font-family: 'Roboto';
+}
+
+h3 {
+  color:#0FC1A7;
+}
+
+#mainContainer {
+  padding-top: 10px;
+}
+
+.innerContainer {
+  margin:15px;
+}
+
+#mainWell {
+  margin-top: 10px;
+}
+
+.profileHead {
+  font-size: 21px;
+  font-weight: 200;
+  padding-left: 20px;
+}
+
+.editLink {
+  color:#0FC1A7;
+  font-size: 18px;
+  font-weight: 100;
+}
+
+.tsGreen {
+  color: #0FC1A7;
+}
+
+.photo {
+  height: 105px;
+  width: 105px;
+}
+
+.formLabel {
+  color: #888;
+}
+.firstName {
+  font-size: 25px;
+  font-weight: 200;
+}
+
+textarea {
+   resize: none;
+}
+
+.topMargin5 {
+  margin-top: 5px;
+}
+
+.topMargin25 {
+  margin-top: 25px;
+}
+
+.marginRight5 {
+  margin-right: 5px;
+}
+
+input.ng-invalid {
+    border: 2px solid #FF0075;
+}
+
+.inValid {
+  color: #FF0075;
+}
+
+label {
+  color: #777;
+}
+
+@media only screen and (min-width : 320px) {
+
+}
