@@ -3,6 +3,7 @@ var app = express();
 var connection  = require('express-myconnection');
 var users = require('./routes/users');
 var mysql = require('mysql');
+var db = require('./config/database')
 
 var bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({
@@ -15,11 +16,11 @@ app.use(
 
     connection(mysql,{
 
-        host: 'localhost',
-        user: 'root',
-        password : 'mysql123',
-        port : 3306, //port mysql
-        database:'ts_app'
+        host: db.config.host,
+        user: db.config.user,
+        password : db.config.password,
+        port : db.config.port, //port mysql
+        database: db.config.database
     },'request')
 );
 
@@ -39,7 +40,7 @@ var options = {
    if (err) {
      next(err);
    } else {
-     console.log('Sent: Index file');
+     //console.log('Sent: Index file');
    }
  });
 

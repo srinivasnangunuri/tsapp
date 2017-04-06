@@ -4,7 +4,7 @@
 
 exports.get = function(req, res){
 
-  console.log("inside Get");
+  console.log("GET request received");
   var id = req.params.id;
   req.getConnection(function(err,connection){
 
@@ -13,7 +13,6 @@ exports.get = function(req, res){
         if(err) {
            console.log("Error Selecting : %s ",err );
          }
-            console.log("data="+JSON.stringify(data));
             res.json(data);
 
          });
@@ -24,7 +23,7 @@ exports.get = function(req, res){
 
 exports.save = function(req,res){
 
-   console.log("Body- "+req.body);
+   console.log("POST request received");
     var input = req.body;
     var id = req.params.id;
 
@@ -32,11 +31,11 @@ exports.save = function(req,res){
 
         var data = {
 
-            //bio    : input.bio,
+            //state  : input.state,
+            bio    : input.bio,
             phone : input.phone,
             slack_name   : input.slackName,
             email   : input.email
-
         };
 
         connection.query("UPDATE user set ? WHERE id = ? ",[data,id], function(err, rows)

@@ -40,10 +40,11 @@ h3 {
 }
 
 .formLabel {
-  color: #888;
+  color: #555;
+  font-size: 16px;
 }
 .firstName {
-  font-size: 25px;
+  font-size: 29px;
   font-weight: 200;
 }
 
@@ -67,7 +68,11 @@ input.ng-invalid {
     border: 2px solid #FF0075;
 }
 
-.inValid {
+textarea.ng-invalid {
+    border: 2px solid #FF0075;
+}
+
+.error {
   color: #FF0075;
 }
 
@@ -75,6 +80,10 @@ label {
   color: #777;
 }
 
-@media only screen and (min-width : 320px) {
+@media (max-width: 350) {
+    body{font-size: 10px;}
+}
 
+@media (max-width: 500) {
+    body{font-size: 16px;}
 }
